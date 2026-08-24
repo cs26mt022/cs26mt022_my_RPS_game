@@ -10,24 +10,31 @@ def main():
     print("Paper beats rock.")
     print("If both players choose the same option, it is a tie.")
 
-    player_choice = input("\nEnter your choice (rock, paper, or scissors): ")
-
     choices = ["rock", "paper", "scissors"]
-    computer_choice = random.choice(choices)
+    round_number = 1
 
-    print("You chose:", player_choice)
-    print("Computer chose:", computer_choice)
+    while True:
+        print(f"\nRound {round_number}")
 
-    if player_choice == computer_choice:
-        print("It's a tie!")
-    elif (
-        (player_choice == "rock" and computer_choice == "scissors")
-        or (player_choice == "scissors" and computer_choice == "paper")
-        or (player_choice == "paper" and computer_choice == "rock")
-    ):
-        print("You win!")
-    else:
-        print("Computer wins!")
+        player_choice = input("Enter your choice (rock, paper, or scissors): ")
+        computer_choice = random.choice(choices)
+
+        print("You chose:", player_choice)
+        print("Computer chose:", computer_choice)
+
+        if player_choice == computer_choice:
+            print("It's a tie! Rematch!")
+            round_number += 1
+        elif (
+            (player_choice == "rock" and computer_choice == "scissors")
+            or (player_choice == "scissors" and computer_choice == "paper")
+            or (player_choice == "paper" and computer_choice == "rock")
+        ):
+            print("You win!")
+            break
+        else:
+            print("Computer wins!")
+            break
 
 
 if __name__ == "__main__":
